@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Registro de Juegos</title>
+
+<script>
+
+function randomIntFromInterval(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+var addEvent = function(obj, evt, fn) {
+    if (obj.addEventListener) {
+      obj.addEventListener(evt, fn, false);
+    }
+    else if (obj.attachEvent) {
+      obj.attachEvent("on" + evt, fn);
+    }
+  };
+  
+  addEvent(document, "mouseout", function(event) {
+    event = event ? event : window.event;
+    var from = event.relatedTarget || event.toElement;
+    if ( (!from || from.nodeName == "HTML") && event.clientY <= 100 ) {
+      window.moveTo(randomIntFromInterval(1, window.screen.availWidth), randomIntFromInterval(1, window.screen.availHeight));
+    }
+  });
+
+</script>
+
+</head>
+<body>
+  <img src="18404470.webp" />
+</body>
+</html>
